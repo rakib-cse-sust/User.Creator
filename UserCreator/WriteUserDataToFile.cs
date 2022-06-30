@@ -6,7 +6,7 @@ namespace UserCreator
 {
     public class WriteUserDataToFile : IWriteUserDataToFile
     {
-        private IUserDataEnterer<TextWriter> _userDataEnterer;
+        private IUserDataEnterer<StreamWriter> _userDataEnterer;
 
         public WriteUserDataToFile()
         {

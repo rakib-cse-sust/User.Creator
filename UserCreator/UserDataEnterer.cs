@@ -5,15 +5,15 @@ using UserCreator.Interfaces;
 
 namespace UserCreator
 {
-    public class UserDataEnterer : IUserDataEnterer<TextWriter>
+    public class UserDataEnterer : IUserDataEnterer<StreamWriter>
     {
         public static int nextId;
 
-        public async Task WriteDataToCsv(TextWriter textWriter, string fieldName, object data)
+        public async Task WriteDataToCsv(StreamWriter writer, string fieldName, object data)
         {
-            await textWriter.WriteLineAsync($"{GetNextId()},{fieldName},{data}");
+            await writer.WriteLineAsync($"{GetNextId()},{fieldName},{data}");
 
-            await textWriter.FlushAsync();
+            await writer.FlushAsync();
         }
 
         private int GetNextId()
